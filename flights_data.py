@@ -18,6 +18,7 @@ class FlightsRaw():
     """class to prepare and retrieve flights raw data
     """
     def __init__(self, checkpoint, source=None, target=None):
+
         """Initialize the FlightsClass class with data source location files
         and load the last status if checkpoint is provided
 
@@ -218,11 +219,12 @@ class FlightsRaw():
             'rows_retrieved': self.rows_retrieved,
             'retrieved_files': self.retrieved_files
         } 
+        
         # Check if checkpoint directory not exists and create it
         if not os.path.isdir(self.checkpoint):
             os.mkdir(self.checkpoint)
 
-        # Save the state_dict as pickle file
+        #Save the state_dict as pickle file
         with open(self.checkpoint + 'flight_raw.pickle', "wb") as pickle_file:
             pickle.dump(state_dict, pickle_file)
 
